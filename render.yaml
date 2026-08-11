@@ -1,0 +1,7 @@
+services:
+  - type: web
+    runtime: static
+    name: finance-premium-web
+    buildCommand: rm -rf public && mkdir -p public && unzip -oq finance-premium-site.zip -d public
+    staticPublishPath: public
+    autoDeployTrigger: commit
