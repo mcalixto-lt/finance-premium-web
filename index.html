@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#07111e" />
+  <link rel="icon" href="assets/icons/icon.svg" type="image/svg+xml" />
+  <title>Finance Premium — Web</title>
+  <link rel="stylesheet" href="css/tokens.css" />
+  <link rel="stylesheet" href="css/app.css" />
+  <link rel="stylesheet" href="css/responsive.css" />
+</head>
+<body>
+  <svg class="svg-sprite" aria-hidden="true">
+    <symbol id="i-home" viewBox="0 0 24 24"><path d="M3 11.2 12 4l9 7.2v8.3a.5.5 0 0 1-.5.5H15v-6H9v6H3.5a.5.5 0 0 1-.5-.5z"/><path d="M8 20v-7h8v7"/></symbol>
+    <symbol id="i-transfer" viewBox="0 0 24 24"><path d="M5 7h14M15 3l4 4-4 4M19 17H5M9 13l-4 4 4 4"/></symbol>
+    <symbol id="i-card" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 10h18M7 15h4"/></symbol>
+    <symbol id="i-file" viewBox="0 0 24 24"><path d="M6 3h8l4 4v14H6z"/><path d="M14 3v5h5M9 12h6M9 16h6"/></symbol>
+    <symbol id="i-calendar" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M8 3v4M16 3v4M3 10h18"/></symbol>
+    <symbol id="i-users" viewBox="0 0 24 24"><path d="M16 20v-2a4 4 0 0 0-4-4H7a4 4 0 0 0-4 4v2"/><circle cx="9.5" cy="7" r="4"/><path d="M17 11a4 4 0 0 1 0 8M16 3.3a4 4 0 0 1 0 7.4"/></symbol>
+    <symbol id="i-shield" viewBox="0 0 24 24"><path d="M12 3 4 6v6c0 5 3.4 8 8 9 4.6-1 8-4 8-9V6z"/><path d="m9 12 2 2 4-5"/></symbol>
+    <symbol id="i-settings" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.8 1.8 0 0 0 .4 2l.1.1-2.8 2.8-.1-.1a1.8 1.8 0 0 0-2-.4 1.8 1.8 0 0 0-1.1 1.6v.2H10v-.2A1.8 1.8 0 0 0 8.9 19.4a1.8 1.8 0 0 0-2 .4l-.1.1L4 17.1l.1-.1a1.8 1.8 0 0 0 .4-2A1.8 1.8 0 0 0 3 13.9h-.2V10h.2A1.8 1.8 0 0 0 4.6 8.9a1.8 1.8 0 0 0-.4-2L4 6.8 6.8 4l.1.1a1.8 1.8 0 0 0 2 .4A1.8 1.8 0 0 0 10 3h4a1.8 1.8 0 0 0 1.1 1.5 1.8 1.8 0 0 0 2-.4l.1-.1L20 6.8l-.1.1a1.8 1.8 0 0 0-.4 2A1.8 1.8 0 0 0 21 10h.2v4H21a1.8 1.8 0 0 0-1.6 1z"/></symbol>
+    <!-- Ícones duotone exclusivos dos indicadores do dashboard. -->
+    <symbol id="i-summary-wallet" viewBox="0 0 24 24">
+      <path d="M7.1 5.2 17 3.9a1.7 1.7 0 0 1 1.9 1.45l.3 2.05H7.1Z" fill="currentColor" opacity=".38"/>
+      <path d="M5.1 7.1h12.7a2.7 2.7 0 0 1 2.7 2.7v7.7a2.5 2.5 0 0 1-2.5 2.5H5.1A3.1 3.1 0 0 1 2 16.9V10.2a3.1 3.1 0 0 1 3.1-3.1Z" fill="currentColor" opacity=".17"/>
+      <path d="M4.4 8.6h13.2M15.2 11.1h5.3v5.3h-5.3a2.65 2.65 0 0 1 0-5.3Z" fill="none" stroke="currentColor" stroke-width="1.55" stroke-linecap="round" stroke-linejoin="round"/>
+      <circle cx="16" cy="13.75" r=".72" fill="currentColor"/>
+    </symbol>
+    <symbol id="i-summary-pix" viewBox="0 0 24 24">
+      <rect x="9.25" y="2.75" width="5.5" height="5.5" rx="1.15" transform="rotate(45 12 5.5)" fill="currentColor" opacity=".98"/>
+      <rect x="13.75" y="7.25" width="5.5" height="5.5" rx="1.15" transform="rotate(45 16.5 10)" fill="currentColor" opacity=".9"/>
+      <rect x="9.25" y="11.75" width="5.5" height="5.5" rx="1.15" transform="rotate(45 12 14.5)" fill="currentColor" opacity=".96"/>
+      <rect x="4.75" y="7.25" width="5.5" height="5.5" rx="1.15" transform="rotate(45 7.5 10)" fill="currentColor" opacity=".88"/>
+      <circle cx="12" cy="10" r="1.05" fill="#eafffb" opacity=".35"/>
+    </symbol>
+    <symbol id="i-summary-cash" viewBox="0 0 24 24">
+      <path d="M5.2 6.1h10.9a2.2 2.2 0 0 1 2.2 2.2v.55H5.2A3.2 3.2 0 0 0 2 12.05V9.3a3.2 3.2 0 0 1 3.2-3.2Z" fill="currentColor" opacity=".32"/>
+      <path d="M5.2 8.6h12.6a2.7 2.7 0 0 1 2.7 2.7v6.15a2.35 2.35 0 0 1-2.35 2.35H5.2A3.2 3.2 0 0 1 2 16.6v-4.8a3.2 3.2 0 0 1 3.2-3.2Z" fill="currentColor" opacity=".15"/>
+      <path d="M4.1 10h13.7M15.15 11.65h5.35v4.8h-5.35a2.4 2.4 0 1 1 0-4.8Z" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
+      <circle cx="15.95" cy="14.05" r=".68" fill="currentColor"/>
+    </symbol>
+    <symbol id="i-summary-debit" viewBox="0 0 24 24">
+      <path d="M6.1 5.1h10.8a2.1 2.1 0 0 1 2.1 2.1v1.2H6.1A3.1 3.1 0 0 0 3 11.5V8.2a3.1 3.1 0 0 1 3.1-3.1Z" fill="currentColor" opacity=".34"/>
+      <path d="M5.2 8.25h12.55a2.75 2.75 0 0 1 2.75 2.75v6.4a2.4 2.4 0 0 1-2.4 2.4H5.2A3.2 3.2 0 0 1 2 16.6v-5.15a3.2 3.2 0 0 1 3.2-3.2Z" fill="currentColor" opacity=".15"/>
+      <path d="M4.2 9.8h13.4M15.25 11.55h5.25v4.9h-5.25a2.45 2.45 0 1 1 0-4.9Z" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/>
+      <circle cx="16" cy="14" r=".68" fill="currentColor"/>
+    </symbol>
+    <symbol id="i-summary-credit" viewBox="0 0 24 24">
+      <rect x="2.5" y="5" width="19" height="14" rx="3" fill="currentColor" opacity=".18"/>
+      <rect x="3.6" y="6.1" width="16.8" height="11.8" rx="2.25" fill="none" stroke="currentColor" stroke-width="1.5"/>
+      <path d="M4 9.8h16" stroke="currentColor" stroke-width="1.65"/>
+      <rect x="6.6" y="13" width="3.2" height="2.15" rx=".7" fill="currentColor" opacity=".8"/>
+      <path d="M12.2 14.1h4.4" stroke="currentColor" stroke-width="1.35" stroke-linecap="round" opacity=".8"/>
+    </symbol>
+    <symbol id="i-summary-receivable" viewBox="0 0 24 24">
+      <rect x="9.1" y="2.7" width="5.8" height="5.8" rx="1.25" transform="rotate(45 12 5.6)" fill="currentColor" opacity=".98"/>
+      <rect x="4.65" y="8.05" width="5.8" height="5.8" rx="1.25" transform="rotate(45 7.55 10.95)" fill="currentColor" opacity=".86"/>
+      <rect x="13.55" y="8.05" width="5.8" height="5.8" rx="1.25" transform="rotate(45 16.45 10.95)" fill="currentColor" opacity=".9"/>
+      <rect x="9.1" y="13.35" width="5.8" height="5.8" rx="1.25" transform="rotate(45 12 16.25)" fill="currentColor" opacity=".96"/>
+      <circle cx="12" cy="10.95" r="1.05" fill="#fff4df" opacity=".27"/>
+    </symbol>
+    <symbol id="i-wallet" viewBox="0 0 24 24"><path d="M4 6.5A2.5 2.5 0 0 1 6.5 4H19a1 1 0 0 1 1 1v14a1 1 0 0 1-1 1H6.5A2.5 2.5 0 0 1 4 17.5z"/><path d="M4 8h16M15 12h6v5h-6a2.5 2.5 0 0 1 0-5z"/><circle cx="16" cy="14.5" r=".7"/></symbol>
+    <symbol id="i-pix" viewBox="0 0 24 24"><path d="m8.4 4.4 3 3a.9.9 0 0 0 1.2 0l3-3a3.4 3.4 0 0 1 4.8 0 3.4 3.4 0 0 1 0 4.8l-3 3a.9.9 0 0 0 0 1.2l3 3a3.4 3.4 0 0 1 0 4.8 3.4 3.4 0 0 1-4.8 0l-3-3a.9.9 0 0 0-1.2 0l-3 3a3.4 3.4 0 0 1-4.8 0 3.4 3.4 0 0 1 0-4.8l3-3a.9.9 0 0 0 0-1.2l-3-3a3.4 3.4 0 0 1 0-4.8 3.4 3.4 0 0 1 4.8 0z"/></symbol>
+    <symbol id="i-money" viewBox="0 0 24 24"><rect x="3" y="6" width="18" height="12" rx="2"/><circle cx="12" cy="12" r="3"/><path d="M7 9a3 3 0 0 1-3 3M17 9a3 3 0 0 0 3 3M7 15a3 3 0 0 0-3-3M17 15a3 3 0 0 1 3-3"/></symbol>
+    <symbol id="i-receive" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="3"/><path d="M12 8v8M8 12l4 4 4-4"/></symbol>
+    <symbol id="i-bell" viewBox="0 0 24 24"><path d="M18 8a6 6 0 0 0-12 0c0 7-3 7-3 9h18c0-2-3-2-3-9M10 21h4"/></symbol>
+    <symbol id="i-eye" viewBox="0 0 24 24"><path d="M2 12s3.5-6 10-6 10 6 10 6-3.5 6-10 6S2 12 2 12z"/><circle cx="12" cy="12" r="2.8"/></symbol>
+    <symbol id="i-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></symbol>
+    <symbol id="i-plus" viewBox="0 0 24 24"><path d="M12 5v14M5 12h14"/></symbol>
+    <symbol id="i-edit" viewBox="0 0 24 24"><path d="M12 20h9M16.5 3.5a2.1 2.1 0 0 1 3 3L8 18l-4 1 1-4z"/></symbol>
+    <symbol id="i-trash" viewBox="0 0 24 24"><path d="M3 6h18M8 6V4h8v2M6 6l1 15h10l1-15M10 10v7M14 10v7"/></symbol>
+    <symbol id="i-filter" viewBox="0 0 24 24"><path d="M4 5h16l-6 7v5l-4 2v-7z"/></symbol>
+    <symbol id="i-download" viewBox="0 0 24 24"><path d="M12 3v12M7 10l5 5 5-5M5 21h14"/></symbol>
+    <symbol id="i-upload" viewBox="0 0 24 24"><path d="M12 21V9M7 14l5-5 5 5M5 3h14"/></symbol>
+    <symbol id="i-cloud" viewBox="0 0 24 24"><path d="M7 18h11a4 4 0 0 0 .6-7.95A7 7 0 0 0 5.2 8.5 4.8 4.8 0 0 0 7 18Z"/><path d="M12 10v7M9 13l3-3 3 3"/></symbol>
+    <symbol id="i-save" viewBox="0 0 24 24"><path d="M5 3h12l2 2v16H5z"/><path d="M8 3v6h8V3M8 21v-7h8v7"/></symbol>
+    <symbol id="i-moon" viewBox="0 0 24 24"><path d="M20 15.5A8.5 8.5 0 0 1 8.5 4 8.5 8.5 0 1 0 20 15.5z"/></symbol>
+    <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></symbol>
+    <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></symbol>
+    <symbol id="i-close" viewBox="0 0 24 24"><path d="m6 6 12 12M18 6 6 18"/></symbol>
+    <symbol id="i-more" viewBox="0 0 24 24"><circle cx="5" cy="12" r="1"/><circle cx="12" cy="12" r="1"/><circle cx="19" cy="12" r="1"/></symbol>
+  </svg>
+
+  <div class="presentation-shell">
+    <main class="app-shell" id="appShell">
+      <aside class="sidebar" id="sidebar">
+        <div class="brand">
+          <div class="brand-mark" aria-hidden="true">
+            <svg viewBox="0 0 64 64"><path d="M32 4 20 19l-10-4 5 22 17 15 17-15 5-22-10 4z"/><path d="M32 4v48M20 19l12 33M44 19 32 52M10 15l22 37 22-37"/></svg>
+          </div>
+          <div class="brand-title">FINANCE</div>
+          <div class="brand-subtitle">PREMIUM</div>
+        </div>
+
+        <nav class="main-nav" aria-label="Navegação principal">
+          <button class="nav-item active" data-page="dashboard" aria-current="page"><svg><use href="#i-home"/></svg><span>Dashboard</span></button>
+          <button class="nav-item" data-page="transactions"><svg><use href="#i-transfer"/></svg><span>Transações</span></button>
+          <button class="nav-item" data-page="cards"><svg><use href="#i-card"/></svg><span>Cartões</span></button>
+          <button class="nav-item" data-page="invoices"><svg><use href="#i-file"/></svg><span>Faturas</span></button>
+          <button class="nav-item" data-page="planning"><svg><use href="#i-calendar"/></svg><span>Planejamento</span></button>
+          <button class="nav-item" data-page="third-parties"><svg><use href="#i-users"/></svg><span>Terceiros</span></button>
+          <button class="nav-item" data-page="reports"><svg><use href="#i-shield"/></svg><span>Relatórios</span></button>
+          <button class="nav-item" data-page="settings"><svg><use href="#i-settings"/></svg><span>Configurações</span></button>
+        </nav>
+
+        <div class="sidebar-illustration" aria-hidden="true">
+          <img src="assets/images/wallet-reference.png" alt="" />
+        </div>
+
+        <button class="profile-card" id="profileButton">
+          <span class="avatar"><img src="assets/images/avatar-bruno.svg" alt="Mauro Silva" /></span>
+          <span class="profile-copy"><strong>Mauro Silva</strong><small>Conta Premium ◈</small></span>
+          <span class="profile-chevron">⌄</span>
+        </button>
+      </aside>
+
+      <section class="main-content">
+        <header class="topbar">
+          <button class="icon-button mobile-menu" id="mobileMenuButton" aria-label="Abrir menu"><svg><use href="#i-menu"/></svg></button>
+          <div>
+            <h1 id="pageGreeting">Bom dia, Mauro</h1>
+            <p id="pageSubtitle">Aqui está o resumo da sua vida financeira.</p>
+          </div>
+          <div class="topbar-actions">
+            <div class="realtime-clock" id="clockControl" aria-label="Hora atual">
+              <div class="analog-clock" aria-hidden="true"><i class="hour-hand" id="hourHand"></i><i class="minute-hand" id="minuteHand"></i><b></b></div>
+              <time id="digitalClock" datetime="">00:00:00</time>
+            </div>
+            <button class="icon-button notification-button" aria-label="Notificações"><svg><use href="#i-bell"/></svg><i></i></button>
+          </div>
+        </header>
+
+        <section class="page active" id="page-dashboard">
+          <div class="summary-grid" id="summaryGrid"></div>
+
+          <div class="dashboard-grid dashboard-grid-top">
+            <article class="panel chart-panel">
+              <div class="panel-heading"><div><h2>Receitas, Despesas e Saldo</h2><div class="legend"><span class="green">Receitas</span><span class="red">Despesas</span><span class="gold">Saldo</span></div></div></div>
+              <div class="line-chart" id="lineChart" aria-label="Gráfico de receitas, despesas e saldo"></div>
+            </article>
+
+            <article class="panel category-panel">
+              <div class="panel-heading"><h2>Gastos por Categoria</h2><button class="mini-select">Maio⌄</button></div>
+              <div class="category-layout">
+                <div class="donut" id="categoryDonut" aria-label="Total de gastos"><div><small>Total</small><strong id="categoryTotal">R$ 0,00</strong><span>100%</span></div></div>
+                <div class="category-list" id="categoryList"></div>
+              </div>
+            </article>
+
+            <article class="panel cards-mini-panel">
+              <div class="panel-heading"><h2>Meus Cartões</h2><button class="text-button" data-page-link="cards">Ver todos</button></div>
+              <div class="credit-card premium-card" id="dashboardCardPreview">
+                <div class="card-brand"><strong id="dashboardCardBrand">VISA</strong><span id="dashboardCardName">Infinite</span></div>
+                <div class="card-chip"></div>
+                <div class="card-number" id="dashboardCardNumber">**** &nbsp;**** &nbsp;**** &nbsp;4242</div>
+                <div class="card-holder" id="dashboardCardHolder">MAURO SILVA</div>
+                <svg class="card-wave" viewBox="0 0 300 60"><path d="M0 45c50-30 85 5 130-12s92 12 170-19"/></svg>
+              </div>
+              <dl class="card-stats" id="dashboardCardStats"></dl>
+            </article>
+          </div>
+
+          <div class="dashboard-grid dashboard-grid-bottom">
+            <article class="panel purchases-panel">
+              <div class="panel-heading"><h2>Compras Recentes</h2><button class="text-button" data-page-link="transactions">Ver todas</button></div>
+              <div class="table-wrap"><table class="finance-table compact"><thead><tr><th>Estabelecimento</th><th>Categoria</th><th>Valor</th><th>Pagamento</th><th>Parcelas</th><th>Comprovante</th></tr></thead><tbody id="recentPurchasesBody"></tbody></table></div>
+            </article>
+
+            <article class="panel installments-panel">
+              <div class="panel-heading"><h2>Parcelas Automáticas</h2><button class="text-button" data-page-link="planning">Ver todas</button></div>
+              <div id="installmentsList" class="installments-list"></div>
+            </article>
+
+            <div class="right-stack">
+              <article class="panel third-mini-panel">
+                <div class="panel-heading"><h2>Controle de Terceiros</h2><button class="text-button" data-page-link="third-parties">Ver todos</button></div>
+                <div id="thirdMiniList" class="third-mini-list"></div>
+              </article>
+              <article class="panel invoices-mini-panel">
+                <div class="panel-heading"><h2>Painel de Faturas Mensais</h2><button class="text-button" data-page-link="invoices">Ver todas</button></div>
+                <div class="invoice-summary" id="dashboardInvoiceSummary"></div>
+              </article>
+            </div>
+          </div>
+        </section>
+
+        <section class="page" id="page-transactions">
+          <div class="page-toolbar">
+            <div class="toolbar-left"><label class="search-box"><svg><use href="#i-search"/></svg><input id="transactionSearch" type="search" placeholder="Buscar transações" /></label><select id="transactionFilter"><option value="all">Todas as categorias</option><option>Alimentação</option><option>Transporte</option><option>Compras</option><option>Recebimento</option><option>Assinatura</option></select></div>
+            <button class="primary-button" data-modal="transaction"><svg><use href="#i-plus"/></svg>Nova transação</button>
+          </div>
+          <div class="metrics-row"><div class="metric-box"><span>Entradas no mês</span><strong class="positive" id="transactionIncomeMetric">R$ 0,00</strong></div><div class="metric-box"><span>Saídas no mês</span><strong class="negative" id="transactionExpenseMetric">R$ 0,00</strong></div><div class="metric-box"><span>Saldo do mês</span><strong class="gold-text" id="transactionBalanceMetric">R$ 0,00</strong></div></div>
+          <article class="panel page-panel"><div class="panel-heading"><h2>Histórico de Transações</h2><button class="secondary-button" id="exportTransactions"><svg><use href="#i-download"/></svg>Exportar CSV</button></div><div class="table-wrap"><table class="finance-table"><thead><tr><th>Data</th><th>Descrição</th><th>Categoria</th><th>Tipo</th><th>Forma</th><th>Valor</th><th>Ações</th></tr></thead><tbody id="transactionsBody"></tbody></table></div></article>
+        </section>
+
+        <section class="page" id="page-cards">
+          <div class="page-toolbar"><div><h2 class="section-title">Seus cartões</h2><p class="section-description">Gerencie limites, datas e faturas.</p></div><button class="primary-button" data-modal="card"><svg><use href="#i-plus"/></svg>Novo cartão</button></div>
+          <div class="cards-page-grid" id="cardsPageGrid"></div>
+          <article class="panel page-panel"><div class="panel-heading"><h2>Resumo de Limites</h2></div><div class="limit-overview limit-overview-dynamic" id="limitOverview"></div></article>
+        </section>
+
+        <section class="page" id="page-invoices">
+          <div class="page-toolbar"><div><h2 class="section-title">Faturas</h2><p class="section-description">Acompanhe faturas abertas, pagas e próximas.</p></div><button class="primary-button" data-modal="invoice"><svg><use href="#i-plus"/></svg>Adicionar fatura</button></div>
+          <div class="invoice-cards" id="invoiceCards"></div>
+          <article class="panel page-panel"><div class="panel-heading"><h2>Compras da fatura atual</h2><select id="invoiceCardFilter"></select></div><div class="table-wrap"><table class="finance-table"><thead><tr><th>Data</th><th>Estabelecimento</th><th>Categoria</th><th>Parcela</th><th>Valor</th></tr></thead><tbody id="invoicePurchasesBody"></tbody></table></div></article>
+        </section>
+
+        <section class="page" id="page-planning">
+          <div class="page-toolbar"><div><h2 class="section-title">Planejamento</h2><p class="section-description">Orçamentos, metas e compromissos futuros.</p></div><button class="primary-button" data-modal="plan"><svg><use href="#i-plus"/></svg>Novo planejamento</button></div>
+          <div class="planning-grid">
+            <article class="panel budget-panel"><div class="panel-heading"><h2>Orçamento por categoria</h2><span class="month-chip">Maio/2025</span></div><div id="budgetList" class="budget-list"></div></article>
+            <article class="panel goals-panel"><div class="panel-heading"><h2>Metas financeiras</h2></div><div id="goalsList" class="goals-list"></div></article>
+          </div>
+          <article class="panel page-panel"><div class="panel-heading"><h2>Parcelas e assinaturas programadas</h2></div><div id="planningInstallments" class="planning-installments"></div></article>
+        </section>
+
+        <section class="page" id="page-third-parties">
+          <div class="page-toolbar"><div><h2 class="section-title">Controle de terceiros</h2><p class="section-description">Valores emprestados, compartilhados ou pendentes.</p></div><button class="primary-button" data-modal="third"><svg><use href="#i-plus"/></svg>Novo registro</button></div>
+          <div class="metrics-row"><div class="metric-box"><span>Total a receber</span><strong class="positive" id="thirdReceivableMetric">R$ 0,00</strong></div><div class="metric-box"><span>Total a pagar</span><strong class="negative" id="thirdPayableMetric">R$ 0,00</strong></div><div class="metric-box"><span>Saldo líquido</span><strong class="gold-text" id="thirdNetMetric">R$ 0,00</strong></div></div>
+          <div class="third-parties-grid" id="thirdPartiesGrid"></div>
+        </section>
+
+        <section class="page" id="page-reports">
+          <div class="page-toolbar"><div><h2 class="section-title">Relatórios</h2><p class="section-description">Análise consolidada da sua vida financeira.</p></div><button class="secondary-button" id="printReport"><svg><use href="#i-download"/></svg>Gerar relatório</button></div>
+          <div class="report-grid">
+            <article class="panel report-wide"><div class="panel-heading"><h2>Evolução patrimonial</h2><select><option>Últimos 12 meses</option></select></div><div class="report-bar-chart" id="reportBarChart"></div></article>
+            <article class="panel"><div class="panel-heading"><h2>Distribuição financeira</h2></div><div class="report-donut"><div class="donut report-donut-shape" id="reportDistributionDonut"><div><small>Patrimônio</small><strong id="reportPatrimony">R$ 0,00</strong></div></div><div class="category-list" id="reportDistributionList"></div></div></article>
+          </div>
+          <div class="insights-grid" id="reportInsights"></div>
+        </section>
+
+        <section class="page" id="page-settings">
+          <div class="settings-grid">
+            <article class="panel settings-card">
+              <div class="panel-heading"><h2>Perfil</h2></div>
+              <div class="profile-settings"><span class="avatar large"><img id="settingsAvatar" src="assets/images/avatar-bruno.svg" alt="Avatar do usuário" /></span><div><strong id="settingsProfileName">Mauro Silva</strong><small id="settingsProfileEmail">mauro@finance.local</small></div><button class="secondary-button" id="changePhotoButton">Alterar foto</button></div>
+              <label>Nome<input id="settingName" value="Mauro Silva" /></label>
+              <label>E-mail<input id="settingEmail" value="mauro@finance.local" type="email" /></label>
+              <button class="primary-button" id="saveProfile">Salvar alterações</button>
+              <input class="hidden-file-input" id="photoInput" type="file" accept="image/png,image/jpeg,image/webp" />
+            </article>
+            <article class="panel settings-card">
+              <div class="panel-heading"><h2>Aparência e privacidade</h2></div>
+              <div class="setting-row"><div><strong>Tema da interface</strong><small>Alterne entre tema escuro e claro.</small></div><button class="theme-switch" id="themeToggle"><svg class="moon"><use href="#i-moon"/></svg><svg class="sun"><use href="#i-sun"/></svg><i></i></button></div>
+              <div class="setting-row"><div><strong>Ocultar valores</strong><small>Substitui valores monetários por pontos.</small></div><label class="toggle"><input id="hideValuesToggle" type="checkbox"/><span></span></label></div>
+              <div class="setting-row"><div><strong>Notificações</strong><small>Avisos de vencimentos e recebimentos.</small></div><label class="toggle"><input id="notificationsToggle" type="checkbox" checked/><span></span></label></div>
+              <div class="setting-row"><div><strong>Salvar dados localmente</strong><small>Armazena alterações automaticamente neste navegador.</small></div><label class="toggle"><input id="localStorageToggle" type="checkbox" checked/><span></span></label></div>
+              <button class="danger-button" id="resetData">Restaurar dados fictícios</button>
+            </article>
+            <article class="panel settings-card">
+              <div class="panel-heading"><h2>Exportar e importar</h2></div>
+              <p class="settings-help">Crie uma cópia completa das transações, cartões, terceiros, faturas, planejamentos e preferências.</p>
+              <div class="backup-actions"><button class="secondary-button" id="exportBackup"><svg><use href="#i-download"/></svg>Exportar backup</button><button class="secondary-button" id="importBackup"><svg><use href="#i-upload"/></svg>Importar backup</button></div>
+              <div class="backup-status"><span>Último salvamento local</span><strong id="lastLocalSave">Ainda não registrado</strong></div>
+              <input class="hidden-file-input" id="backupInput" type="file" accept="application/json,.json" />
+            </article>
+            <article class="panel settings-card">
+              <div class="panel-heading"><h2>Google Drive</h2></div>
+              <p class="settings-help">Salve e restaure um arquivo privado de backup na sua conta do Google Drive. A integração exige um ID de cliente OAuth configurado.</p>
+              <label>ID do cliente OAuth<input id="googleClientId" placeholder="000000000000-...apps.googleusercontent.com" /></label>
+              <div class="backup-actions"><button class="secondary-button" id="saveDriveBackup"><svg><use href="#i-cloud"/></svg>Salvar no Drive</button><button class="secondary-button" id="restoreDriveBackup"><svg><use href="#i-download"/></svg>Restaurar do Drive</button></div>
+              <div class="drive-status" id="driveStatus"><i></i><span>Google Drive não conectado</span></div>
+            </article>
+          </div>
+        </section>
+      </section>
+    </main>
+
+  </div>
+
+  <div class="modal-overlay" id="modalOverlay" aria-hidden="true">
+    <section class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <div class="modal-header"><div><h2 id="modalTitle">Novo registro</h2><p id="modalSubtitle">Preencha os dados abaixo.</p></div><button class="icon-button" id="closeModal"><svg><use href="#i-close"/></svg></button></div>
+      <form id="modalForm"><div id="modalFields" class="modal-fields"></div><div class="modal-actions"><button type="button" class="secondary-button" id="cancelModal">Cancelar</button><button type="submit" class="primary-button">Salvar</button></div></form>
+    </section>
+  </div>
+
+  <div class="toast-container" id="toastContainer"></div>
+
+  <script src="https://accounts.google.com/gsi/client" async defer></script>
+  <script src="js/config.js"></script>
+  <script src="js/mock-data.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
