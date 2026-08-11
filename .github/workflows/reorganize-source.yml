@@ -15,11 +15,12 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Extrair codigo-fonte completo
+      - name: Restaurar codigo-fonte principal
         shell: bash
         run: |
           set -euo pipefail
-          unzip -oq finance-premium-site.zip -d .
+          tr -d '\r\n ' < deploy-runtime/runtime.b64.full | base64 -d > /tmp/finance-runtime.zip
+          unzip -oq /tmp/finance-runtime.zip -d .
 
           cat > render.yaml <<'EOF'
           services:
