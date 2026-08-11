@@ -2,6 +2,6 @@ services:
   - type: web
     runtime: static
     name: finance-premium-web
-    buildCommand: rm -rf public && mkdir -p public && unzip -oq finance-premium-site.zip -d public
+    buildCommand: rm -rf public /tmp/finance-runtime.zip && mkdir -p public && cp -r assets css js public/ && cat deploy-runtime/runtime.b64.* | tr -d '\n' | base64 -d > /tmp/finance-runtime.zip && unzip -oq /tmp/finance-runtime.zip -d public
     staticPublishPath: public
     autoDeployTrigger: commit
