@@ -1,0 +1,59 @@
+name: Reorganizar codigo-fonte
+
+on:
+  push:
+    branches: [main]
+
+permissions:
+  contents: write
+
+jobs:
+  reorganize:
+    if: github.actor != 'github-actions[bot]'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Reconstruir arquivos principais
+        shell: bash
+        run: |
+          set -euo pipefail
+          cat deploy-runtime/runtime.b64.* | tr -d '\n' | base64 -d > /tmp/finance-runtime.zip
+          unzip -oq /tmp/finance-runtime.zip -d .
+
+          cat > render.yaml <<'EOF'
+          services:
+            - type: web
+              runtime: static
+              name: finance-premium-web
+              buildCommand: echo "Finance Premium - static site"
+              staticPublishPath: .
+              autoDeployTrigger: commit
+          EOF
+
+          cat > .gitignore <<'EOF'
+          .DS_Store
+          Thumbs.db
+          *.log
+          .vscode/
+          .idea/
+          EOF
+
+          rm -rf deploy-runtime deploy-parts
+          rm -f finance-premium-site.zip
+          rm -f .github/workflows/reorganize-source.yml
+
+      - name: Publicar estrutura limpa
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          if git diff --cached --quiet; then
+            echo "Nenhuma alteracao necessaria."
+            exit 0
+          fi
+          git commit -m "Reorganiza projeto para deploy direto no Render"
+          git push origin HEAD:main
