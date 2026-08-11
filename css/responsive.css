@@ -64,7 +64,9 @@
   .backup-actions .secondary-button { width:100%!important; min-width:0!important; }
 
   #sidebar.sidebar { position:fixed!important; z-index:1002!important; left:8px!important; top:8px!important; bottom:8px!important; width:min(286px,calc(100vw - 32px))!important; height:auto!important; min-height:0!important; transform:translate3d(calc(-100% - 24px),0,0)!important; transition:transform .24s ease!important; border-radius:20px!important; overflow-y:auto!important; visibility:visible!important; pointer-events:auto!important; }
-  #sidebar.sidebar.mobile-open { transform:translate3d(0,0,0)!important; }
+  #sidebar.sidebar.mobile-open,
+  body:has(#mobileMenuButton:focus) #sidebar.sidebar,
+  body:has(#sidebar:focus-within) #sidebar.sidebar { transform:translate3d(0,0,0)!important; }
 }
 
 @media (max-width:360px) {
