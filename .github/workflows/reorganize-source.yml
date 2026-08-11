@@ -15,12 +15,11 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Reconstruir arquivos principais
+      - name: Extrair codigo-fonte completo
         shell: bash
         run: |
           set -euo pipefail
-          cat deploy-runtime/runtime.b64.* | tr -d '\n' | base64 -d > /tmp/finance-runtime.zip
-          unzip -oq /tmp/finance-runtime.zip -d .
+          unzip -oq finance-premium-site.zip -d .
 
           cat > render.yaml <<'EOF'
           services:
